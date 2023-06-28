@@ -1,0 +1,20 @@
+"0","hc2021 <- read_csv(""~/Desktop/elliesacbeeR/data/Hate-2001-2021.csv"")"
+"2","[1mRows: [22m[34m26199[39m [1mColumns: [22m[34m23[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (12): RecordId, NCIC, SuspectsRaceAsAGroup, MostSeriousUcr, MostSeriousUc...
+[32mdbl[39m (10): ClosedYear, MonthOccurrence, County, TotalNumberOfVictims, TotalNum...
+[33mlgl[39m  (1): IsMultipleBias"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","hcp2021 <- read_csv(""~/Desktop/elliesacbeeR/data/Hate-Prosecution-survey-2004-2021.csv"")"
+"2","[1mRows: [22m[34m1215[39m [1mColumns: [22m[34m13[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (12): Agency Type, Agency Name, Total Hate Crime Cases Referred, Total Ca...
+[32mdbl[39m  (1): Year"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","agencyname <- read_xlsx(""~/Desktop/elliesacbeeR/data/Agency Code Jurisdiction List_07072022.xlsx"")"

@@ -1,0 +1,20 @@
+
+```{r}
+library(tidyverse)
+library(rvest)
+library(janitor)
+```
+
+## scrape
+```{r}
+url <- "https://www.dol.gov/agencies/whd/state/minimum-wage/tipped"
+
+html <- read_html(url)
+
+table1 <- html %>% html_element("table") %>% html_table() %>% clean_names
+```
+## get it into a table
+```{r}
+write.csv(table1, "minimumagebystate.csv")
+```
+

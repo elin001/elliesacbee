@@ -1,0 +1,3 @@
+"0","outs <- read_excel(""~/Desktop/elliesacbeeR/data/outs.xlsx"", sheet=1)"
+"2","New names:"
+"0","irs <- read.csv(""~/Desktop/elliesacbeeR/data/countyoutflow2021.csv"")"

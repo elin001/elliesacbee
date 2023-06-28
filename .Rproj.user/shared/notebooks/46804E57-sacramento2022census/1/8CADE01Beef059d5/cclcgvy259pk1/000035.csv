@@ -1,0 +1,59 @@
+"0","medianage_ca <- map_dfr(years,
+                      ~ get_acs(
+                        geography = ""state"",
+                        variables = my_variables,
+                        state = ""CA"", 
+                        year = .x,
+                        survey = ""acs5"",
+                        geometry = FALSE,
+                      ),
+                      .id = ""year"") %>% select (-moe) %>% arrange(variable, NAME) %>% print()
+"
+"2","Getting data from the 2006-2010 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2007-2011 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2008-2012 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2009-2013 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2010-2014 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2011-2015 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2012-2016 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2013-2017 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2014-2018 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2015-2019 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2016-2020 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"
+"2","Getting data from the 2017-2021 5-year ACS
+"
+"2","Using FIPS code '06' for state 'CA'
+"

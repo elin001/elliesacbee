@@ -1,0 +1,109 @@
+---
+title: "norcalmultiyeardata"
+output: html_document
+date: "2023-06-16"
+---
+
+##libraries
+```{r}
+library(tidyverse)
+library(tidycensus)
+library(sf)
+library(ggplot2)
+library(scales)
+```
+
+##load ACS variable key
+```{r}
+acs2018 <- load_variables(2018, "acs5", cache=TRUE)
+
+acs2022 <-load_variables(2022, "acs1", cache = TRUE)
+```
+
+##define years, counties
+```{r}
+my_counties <- c("Sacramento", "Yolo", "Placer", "El Dorado", "Sutter", "Amador", "Yuba")
+```
+
+##census variables
+```{r}
+race_variables2021 <- c(
+  white_alone = "B02001_002",
+  black_alone = "B02001_003",
+  na_alone = "B02001_004",
+  asian_alone = "B02001_004",
+  nhpi_alone = "B02001_006",
+  other_alone = "B02001_007",
+  two_or_more = "B02001_008")
+```
+
+## a loop
+```{r}
+multi_year <- map_dfr(years,
+                      ~ get_acs(
+                        geography = "county",
+                        variables = race_variables2021,
+                        state = "CA", 
+                        county = my_counties,
+                        year = .x,
+                        survey = "acs1",
+                        geometry = FALSE,
+                      ),
+                      .id = "year") %>% select (-moe) %>% arrange(variable, NAME) %>% print()
+```
+
+
+## exporting my tibble as a csv
+```{r}
+write.csv(multi_year, "2018_2021norcalracedata.csv")
+```
+
+i was going to try and do the brunt of the story work in R, however the vintage 2022 estimates aren't currently available on the census API. go figure. 
+
+## pulling the stuff i need
+```{r}
+v2010 <- load_variables(2010, "acs1", cache = TRUE)
+v2011 <- load_variables(2011, "acs5", cache = TRUE)
+v2012 <- load_variables(2012, "acs5", cache = TRUE)
+v2013 <- load_variables(2013, "acs5", cache = TRUE)
+v2014 <- load_variables(2014, "acs5", cache = TRUE)
+v2015 <- load_variables(2015, "acs5", cache = TRUE)
+v2016 <- load_variables(2016, "acs5", cache = TRUE)
+v2017 <- load_variables(2017, "acs5", cache = TRUE)
+v2018 <- load_variables(2018, "acs5", cache = TRUE)
+v2019 <- load_variables(2019, "acs5", cache = TRUE)
+v2021 <- load_variables(2021, "acs5", cache = TRUE)
+
+dcs <-load_variables(2020,"dhc", cache = TRUE)
+
+years <- lst(2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021)
+
+my_variables <- c(
+  median_age = "B01002A_001",
+  median_male_age = "B01002A_002",
+  median_female_age = "B01002A_003"
+)
+
+my_variablesdcs <-c(
+  median_age = "P13_001N",
+  male_median_age = "P13_002N",
+  female_median_age = "P13_003N"
+)
+
+
+medianage_ca <- map_dfr(years,
+                      ~ get_acs(
+                        geography = "state",
+                        variables = my_variables,
+                        state = "CA", 
+                        year = .x,
+                        survey = "acs5",
+                        geometry = FALSE,
+                      ),
+                      .id = "year") %>% select (-moe) %>% arrange(variable, NAME) %>% print()
+```
+
+```{r}
+write.csv(medianage_ca,"medianage_ca.csv")
+```
+

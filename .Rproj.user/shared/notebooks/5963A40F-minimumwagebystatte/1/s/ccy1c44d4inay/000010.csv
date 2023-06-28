@@ -1,0 +1,16 @@
+"0","table1 <- html %>% html_element(""table"") %>% html_table() %>% clean_names
+"
+"2","Warning messages:
+"
+"2","1: "
+"2","In xml_attrs(`__OBJECT__`) :"
+"2"," could not find function ""xml_attrs""
+"
+"2","2: "
+"2","In xml_child(`__OBJECT__`, 2) :"
+"2"," could not find function ""xml_child""
+"
+"2","3: "
+"2","In xml_child(`__OBJECT__`, 1) :"
+"2"," could not find function ""xml_child""
+"
