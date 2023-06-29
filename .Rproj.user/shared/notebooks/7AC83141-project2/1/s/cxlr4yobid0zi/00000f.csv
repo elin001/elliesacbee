@@ -1,3 +1,0 @@
-"0","acs2020_var <- load_variables(2020, ""acs5"", cache=TRUE)"
-"0",""
-"0","dcs2020_var <- load_variables(2020, ""pl"", cache=TRUE)"

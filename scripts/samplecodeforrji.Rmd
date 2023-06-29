@@ -8,11 +8,75 @@ date: "2023-06-16"
 ```{r}
 library(tidyverse)
 library(tidycensus)
+library(tigris)
 ```
 
-##make your initial call
-The "load_variables" command is a way to access the variable names for an individual survey. Check out [https://walker-data.com/tidycensus/reference/load_variables.html] for a 
+##finding your variable
+The "load_variables" command is a way to access the variable names for an individual survey. For example, the variable for the 2021 ACS 1-year survey for total median age by sex is "B01002_001."
+
+Check out [https://walker-data.com/tidycensus/reference/load_variables.html] for a thorough documentation on exactly what each argument means. In the command below, 2021 references the year I'm searching for, and "acs1" refers to the survey I'm accessing. 
 ```{r}
 v2021 <- load_variables(2021, "acs1", cache = TRUE)
+```
+
+There's a lot of variables. The v2021 file I've got has 34,600 entries, so let's try and filter things down a little bit. Here's where tidyverse comes into play, you can narrow and specify variables using the filter function. 
+
+```{r}
+v2021 %>% filter(grepl("information", label))
+```
+
+##making your first call-sorting
+I want to look at the incidence of male information workers to female information workers by state. Here's some sample code for how to get that. For the most part the arguments are self-explanatory: geography details what geographic level you want to look at the data, variables are the alphanumeric values that represent the populations you're interested in, year is the year you're looking at for the data, the survey is the one the data was collected in, and specifying TRUE/FALSE for geometry will call the Census Bureau's geography into your dataset. 
+```{r}
+infoworkers <- get_acs(geography = "state",
+                            variables = c(male_info_workers="B24030_081", female_info_workers="B24030_185"),
+                            year = 2021,
+                            survey = "acs1",
+                            geometry = TRUE) 
+
+infoworkers %>% arrange(desc(estimate))
+```
+
+It looks like California has the greatest number of of both male and female information workers. That's really interesting, I wonder what it looks like at the countywide level: 
+
+```{r}
+californiainfoworkers <- get_acs(geography = "county", 
+                                 variables = c(male_info_workers="B24030_081", female_info_workers="B24030_185"),
+                                 state = "California", 
+                                 year = 2021,
+                                 survey = "acs1",
+                                 geometry = TRUE)
+```
+
+Lots of NAs, because the ACS 1-year survey only collects data on populations with more than 65,000 people. 
+Okay, let's keep the data nationwide. Let's see which state has the highest range between info workers. To start to do this, I'm gonna create two different columns for male and female information workers 
+
+## working with data -- spreading, getting ready to plot
+```{r}
+infoworkers1 <- get_acs(geography = "state",
+                        variables = c(female_info_workers="B24030_185", male_info_workers = "B24030_081"),
+                        year = 2021,
+                        survey = "acs1",
+                        geometry = TRUE,
+                        resolution = "20m") %>% shift_geometry() %>% select(GEOID, NAME, variable, estimate) %>% spread(variable, estimate) %>% mutate(difference = male_info_workers-female_info_workers)
+```
+
+## mapping 
+
+First, I'm gonna make a really simple map using the "plot" function, just so we can start to visualize the basic map.  
+```{r}
+plot(infoworkers1["difference"])
+```
+
+Same basic ideas for the ggplot map, just a bit more customizability. Here's the idea. You define your data and your map "aesthetic" is set using the metric you want to map. "geom_sf" draws your map. "scale_fill_distiller" sets the legend and defines the palette and the direction (either -1 or 1) of the scale.  
+
+```{r}
+ggplot(data = infoworkers1, aes(fill = difference)) + 
+  geom_sf() + 
+  scale_fill_distiller(palette = "YlGnBu", direction = 1) 
+  labs(title = " How many more male workers than female workers are there in the information sector?",
+       caption = "Data souce: 2021 1-year ACS, US Census Bureau", 
+       fill= "Difference") +
+  theme_void()
 ```
 
