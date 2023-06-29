@@ -5,6 +5,7 @@ date: "2023-06-16"
 ---
 
 ##load the packages you need
+You absolutely need tidyverse and tidycensus, but I also loaded tigris to do some basic mapping at the end of the walkthrough. 
 ```{r}
 library(tidyverse)
 library(tidycensus)
@@ -25,7 +26,7 @@ There's a lot of variables. The v2021 file I've got has 34,600 entries, so let's
 v2021 %>% filter(grepl("information", label))
 ```
 
-##making your first call-sorting
+##making your first call, sorting
 I want to look at the incidence of male information workers to female information workers by state. Here's some sample code for how to get that. For the most part the arguments are self-explanatory: geography details what geographic level you want to look at the data, variables are the alphanumeric values that represent the populations you're interested in, year is the year you're looking at for the data, the survey is the one the data was collected in, and specifying TRUE/FALSE for geometry will call the Census Bureau's geography into your dataset. 
 ```{r}
 infoworkers <- get_acs(geography = "state",
@@ -49,9 +50,11 @@ californiainfoworkers <- get_acs(geography = "county",
 ```
 
 Lots of NAs, because the ACS 1-year survey only collects data on populations with more than 65,000 people. 
-Okay, let's keep the data nationwide. Let's see which state has the highest range between info workers. To start to do this, I'm gonna create two different columns for male and female information workers 
+Okay, let's keep the data nationwide. Let's see which state has the highest range between info workers. 
 
-## working with data -- spreading, getting ready to plot
+To start to do this, I'm gonna create two different columns for male and female information workers. That's what that "spread" command is for. Next, I pipe it into  
+
+## working with data: spreading, getting ready to plot
 ```{r}
 infoworkers1 <- get_acs(geography = "state",
                         variables = c(female_info_workers="B24030_185", male_info_workers = "B24030_081"),
@@ -68,15 +71,24 @@ First, I'm gonna make a really simple map using the "plot" function, just so we 
 plot(infoworkers1["difference"])
 ```
 
-Same basic ideas for the ggplot map, just a bit more customizability. Here's the idea. You define your data and your map "aesthetic" is set using the metric you want to map. "geom_sf" draws your map. "scale_fill_distiller" sets the legend and defines the palette and the direction (either -1 or 1) of the scale.  
+Same basic ideas for the ggplot map, just a bit more customizability. The process below (loosely): define your data and your map "aesthetic" is set using the metric you want to map -- so in this instance the aesthetic is the difference in number of male information sector workers and female information sector workers. "geom_sf" draws your map. "scale_fill_distiller" sets the legend and defines the palette and the direction (either -1 or 1) of the scale.  
+
+Here are some more resources! 
+https://walker-data.com/tidycensus/articles/spatial-data.html 
+https://walker-data.com/census-r/mapping-census-data-with-r.html 
 
 ```{r}
 ggplot(data = infoworkers1, aes(fill = difference)) + 
   geom_sf() + 
-  scale_fill_distiller(palette = "YlGnBu", direction = 1) 
+  scale_fill_distiller(palette = "YlGnBu", direction = 1) +
   labs(title = " How many more male workers than female workers are there in the information sector?",
        caption = "Data souce: 2021 1-year ACS, US Census Bureau", 
        fill= "Difference") +
   theme_void()
+```
+## next steps!
+If you don't plan on using ggplot or other R based visualization services, you can export the data you've made in the following manner, where the first argument is the name of the table you created and the item in quotes is what you'd like to name the file. 
+```{r}
+write.csv(infoworers1, "informationsector.csv")
 ```
 
