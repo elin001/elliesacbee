@@ -1,1 +1,0 @@
-"0","nosummaryrows <-irs %>% group_by(y2_countyname) %>% filter(y1_statefips == ""6"" & y2_statefips !=96 & y2_statefips !=97 & y2_statefips !=98)"

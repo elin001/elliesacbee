@@ -4,8 +4,13 @@ output: html_document
 date: "2023-06-16"
 ---
 
+If this is your first time coding in R, here are some shortcuts: 
+ - The play button to the right of the code chunk (the code chunks are areas highlighted in gray) will run all of the code in the chunk. 
+ - Selecting a specific line and hitting CMD + Enter (or for Windows, CTRL + Enter) will run only that line. You can select multiple lines this way as well, say if you want to run two lines of code out of three. 
+ - To create a new code chunk, you can hit that green C button with the plus in the upper right hand corner, or you can use CMD + Option + i (or for Windows, CTRL + ALT + i)
+
 ##load the packages you need
-You absolutely need tidyverse and tidycensus, but I also loaded tigris to do some basic mapping at the end of the walkthrough. 
+You need tidyverse and tidycensus, but I also loaded tigris to do some basic mapping at the end of the walkthrough. 
 ```{r}
 library(tidyverse)
 library(tidycensus)
@@ -15,26 +20,44 @@ library(tigris)
 ##finding your variable
 The "load_variables" command is a way to access the variable names for an individual survey. For example, the variable for the 2021 ACS 1-year survey for total median age by sex is "B01002_001."
 
-Check out [https://walker-data.com/tidycensus/reference/load_variables.html] for a thorough documentation on exactly what each argument means. In the command below, 2021 references the year I'm searching for, and "acs1" refers to the survey I'm accessing. 
+Check out [https://walker-data.com/tidycensus/reference/load_variables.html] for a thorough documentation on exactly what each argument means. In the command below, "2021" references the year I'm searching for, and "acs1" refers to the survey I'm accessing. 
+
+When you hit the play button, the data will load into v2021, a variable in your environment tab on the right. You can hit the spreadsheet looking box on the right of the variable to open it in a new tab.
 ```{r}
 v2021 <- load_variables(2021, "acs1", cache = TRUE)
 ```
 
-There's a lot of variables. The v2021 file I've got has 34,600 entries, so let's try and filter things down a little bit. Here's where tidyverse comes into play, you can narrow and specify variables using the filter function. 
+There's a lot of variables. The v2021 file I've got has 34,600 entries, so let's try and filter things down a little bit. Here's where tidyverse comes into play, you can narrow and specify variables using the filter function and grepl functions.
+ - https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/filter 
+ - https://campus.datacamp.com/courses/intermediate-r/chapter-5-utilities?ex=8 
+ 
+Let's look for data on the information sector.
 
 ```{r}
 v2021 %>% filter(grepl("information", label))
 ```
 
 ##making your first call, sorting
-I want to look at the incidence of male information workers to female information workers by state. Here's some sample code for how to get that. For the most part the arguments are self-explanatory: geography details what geographic level you want to look at the data, variables are the alphanumeric values that represent the populations you're interested in, year is the year you're looking at for the data, the survey is the one the data was collected in, and specifying TRUE/FALSE for geometry will call the Census Bureau's geography into your dataset. 
+I want to look at the incidence of male information workers to female information workers by state. Here's some sample code for how to get that. 
+
+For the most part the arguments are self-explanatory: "geography" details what geographic level you want to look at the data (e.g. state, county, census tract, zip code, etc.), "variables" are the alphanumeric values that represent the populations you're interested in, "year" is the year you're looking at for the data, the "survey" is the one the data was collected in, and specifying TRUE/FALSE for geometry will call the Census Bureau's geographic bounds into your dataset, which is helpful for mapping. 
+
+Here's some documentation:
+ - https://walker-data.com/tidycensus/articles/basic-usage.html
 ```{r}
 infoworkers <- get_acs(geography = "state",
                             variables = c(male_info_workers="B24030_081", female_info_workers="B24030_185"),
                             year = 2021,
                             survey = "acs1",
                             geometry = TRUE) 
+```
 
+This symbol " %>% " is called a pipe. It's a way to perform functions on your data, like "arrange." The arrange command orders your table based on a given column: in this case, the "estimate" column represents the number of people in each category. Arranging the data in descending order will put the highest value first. 
+ - https://towardsdatascience.com/an-introduction-to-the-pipe-in-r-823090760d64 
+ - https://dplyr.tidyverse.org/reference/arrange.html 
+To pipe in R, you can use CMD + Shift + M (or CTRL + Shift + M)
+
+```{r}
 infoworkers %>% arrange(desc(estimate))
 ```
 
@@ -48,11 +71,11 @@ californiainfoworkers <- get_acs(geography = "county",
                                  survey = "acs1",
                                  geometry = TRUE)
 ```
+Lots of NAs, because the ACS 1-year survey only collects data on populations with more than 65,000 people. Any counties with fewer than 65,000 people won't show up here. 
 
-Lots of NAs, because the ACS 1-year survey only collects data on populations with more than 65,000 people. 
-Okay, let's keep the data nationwide. Let's see which state has the highest range between info workers. 
+Okay, let's keep the data nationwide. Let's see which state has the highest difference in number of information workers. 
 
-To start to do this, I'm gonna create two different columns for male and female information workers. That's what that "spread" command is for. Next, I pipe it into  
+I'm going to replicate the call from above and store it in a new table, infoworkers1. Everything is identical to the call above, except I'm gonna include the geometry so we can map it later and set the resolution to "20m" and the %>% into shift_geometry() will help with mapping. 
 
 ## working with data: spreading, getting ready to plot
 ```{r}
@@ -63,19 +86,25 @@ infoworkers1 <- get_acs(geography = "state",
                         geometry = TRUE,
                         resolution = "20m") %>% shift_geometry() %>% select(GEOID, NAME, variable, estimate) %>% spread(variable, estimate) %>% mutate(difference = male_info_workers-female_info_workers)
 ```
+Next you'll pipe ( %>% ) it into a select function, which means it's only going to return the columns specified in parentheses. 
+ - https://www.rdocumentation.org/packages/dplyr/versions/0.7.3/topics/select 
+
+Then, I'm gonna create two different columns for male and female information workers. That's what the "spread" command is for. 
+ - https://www.statology.org/spread-function-in-r/ 
+
+Next, I pipe it into a mutate function. This will make a new column in our data and name it "difference." The values are filled in by subtracting female_info_workers estimates from male_info_workers estimates. 
 
 ## mapping 
-
 First, I'm gonna make a really simple map using the "plot" function, just so we can start to visualize the basic map.  
 ```{r}
 plot(infoworkers1["difference"])
 ```
 
-Same basic ideas for the ggplot map, just a bit more customizability. The process below (loosely): define your data and your map "aesthetic" is set using the metric you want to map -- so in this instance the aesthetic is the difference in number of male information sector workers and female information sector workers. "geom_sf" draws your map. "scale_fill_distiller" sets the legend and defines the palette and the direction (either -1 or 1) of the scale.  
+Ggplot will make you a more complex map, with a lot more customizability. The process below (loosely): define your data and your map "aesthetic" is set using the metric you want to map -- so in this instance the aesthetic is the difference in number of male information sector workers and female information sector workers. "geom_sf" draws your map. "scale_fill_distiller" sets the legend and defines the palette and the direction (either -1 or 1) of the scale.  
 
 Here are some more resources! 
-https://walker-data.com/tidycensus/articles/spatial-data.html 
-https://walker-data.com/census-r/mapping-census-data-with-r.html 
+ - https://walker-data.com/tidycensus/articles/spatial-data.html 
+ - https://walker-data.com/census-r/mapping-census-data-with-r.html 
 
 ```{r}
 ggplot(data = infoworkers1, aes(fill = difference)) + 
@@ -86,6 +115,7 @@ ggplot(data = infoworkers1, aes(fill = difference)) +
        fill= "Difference") +
   theme_void()
 ```
+
 ## next steps!
 If you don't plan on using ggplot or other R based visualization services, you can export the data you've made in the following manner, where the first argument is the name of the table you created and the item in quotes is what you'd like to name the file. 
 ```{r}

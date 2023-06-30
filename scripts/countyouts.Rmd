@@ -8,23 +8,23 @@ outs.xlsx is census data
 ```{r}
 outs <- read_excel("~/Desktop/elliesacbeeR/data/outs.xlsx", sheet=1)
 
-irs <- read.csv("~/Desktop/elliesacbeeR/data/countyoutflow2021.csv")
+irsouts <- read.csv("~/Desktop/elliesacbeeR/data/countyoutflow2021.csv")
+
+irsins <- read.csv("~/Desktop/elliesacbeeR/data/countyinflow2021.csv")
+
+state2state <- read_excel("~/Desktop/elliesacbeeR/data/2021ca (1).xlsx")
 ```
-
-```{r}
-irs %>% filter(y1_countyfips == 34 | y1_countyfips == 31 | y1_countyfips == 9 | y1_countyfips == 57) %>% filter(y1_statefips == 6)
-
-
-```
-
 
 California state fips code = 06
 
 ##filter down
 ```{r}
 nosummaryrows <-irs %>% group_by(y2_countyname) %>% filter(y1_statefips == "6" & y2_statefips !=96 & y2_statefips !=97 & y2_statefips !=98)
+
 ```
 
+
+Just four-county area
 ```{r}
 nosummaryrows %>% filter(y1_countyfips == 34 | y1_countyfips == 31 | y1_countyfips == 9 | y1_countyfips == 57)
 ```
