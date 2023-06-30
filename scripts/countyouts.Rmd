@@ -2,6 +2,7 @@
 ```{r}
 library(tidyverse)
 library(readxl)
+library(tigris)
 ```
 ## load the data
 outs.xlsx is census data
@@ -13,20 +14,63 @@ irsouts <- read.csv("~/Desktop/elliesacbeeR/data/countyoutflow2021.csv")
 irsins <- read.csv("~/Desktop/elliesacbeeR/data/countyinflow2021.csv")
 
 state2state <- read_excel("~/Desktop/elliesacbeeR/data/2021ca (1).xlsx")
+
+latlongs <- read_csv("https://gist.github.com/russellsamora/12be4f9f574e92413ea3f92ce1bc58e6/raw/3f18230058afd7431a5d394dab7eeb0aafd29d81/us_county_latlng.csv")
 ```
 
 California state fips code = 06
 
 ##filter down
 ```{r}
-nosummaryrows <-irs %>% group_by(y2_countyname) %>% filter(y1_statefips == "6" & y2_statefips !=96 & y2_statefips !=97 & y2_statefips !=98)
-
+nosummaryrows <-irsouts %>% group_by(y2_countyname) %>% filter(y1_statefips == "6" & y2_statefips !=96 & y2_statefips !=97 & y2_statefips !=98)
 ```
-
 
 Just four-county area
 ```{r}
 nosummaryrows %>% filter(y1_countyfips == 34 | y1_countyfips == 31 | y1_countyfips == 9 | y1_countyfips == 57)
+```
+## getting prepped to geocode
+using str_pad to make both the county fips code columns and the state fips code columns have leading zeroes so they're like actual fips codes. then, im gonna concatenate the columns. 
+```{r}
+irsins$y1_countyfips <- str_pad(irsins$y1_countyfips, 3, pad = 0)
+
+irsins$y1_statefips <- str_pad(irsins$y1_statefips, 2, pad = 0)
+
+irsins$y2_countyfips <- str_pad(irsins$y2_countyfips, 3, pad = 0)
+
+irsins$y2_statefips <- str_pad(irsins$y2_statefips, 2, pad = 0)
+
+irsins <- irsins %>% mutate(state1fullfips = str_c(y1_statefips, y1_countyfips))
+
+irsins <- irsins %>% mutate(state2fullfips = str_c(y2_statefips, y2_countyfips))
+```
+
+this one is for irs outs. i still have not decided which table i'm going to use to visualize. so i'm formatting both.
+```{r}
+irsouts$y1_countyfips <- str_pad(irsouts$y1_countyfips, 3, pad = 0)
+
+irsouts$y1_statefips <- str_pad(irsouts$y1_statefips, 2, pad = 0)
+
+irsouts$y2_countyfips <- str_pad(irsouts$y2_countyfips, 3, pad = 0)
+
+irsouts$y2_statefips <- str_pad(irsouts$y2_statefips, 2, pad = 0)
+
+irsouts <- irsouts %>% mutate(state1fullfips = str_c(y1_statefips, y1_countyfips))
+
+irsouts <- irsouts %>% mutate(state2fullfips = str_c(y2_statefips, y2_countyfips))
+```
+
+
+outmigration from just california
+```{r}
+irsouts %>% group_by(y2_countyname) %>% filter(y1_statefips == "06")
+```
+
+
+## to merge
+
+```{r}
+
 ```
 
 
