@@ -45,7 +45,7 @@ irsins <- irsins %>% mutate(state1fullfips = str_c(y1_statefips, y1_countyfips))
 irsins <- irsins %>% mutate(state2fullfips = str_c(y2_statefips, y2_countyfips))
 ```
 
-this one is for irs outs. i still have not decided which table i'm going to use to visualize. so i'm formatting both.
+formatting both.
 ```{r}
 irsouts$y1_countyfips <- str_pad(irsouts$y1_countyfips, 3, pad = 0)
 
@@ -60,19 +60,62 @@ irsouts <- irsouts %>% mutate(state1fullfips = str_c(y1_statefips, y1_countyfips
 irsouts <- irsouts %>% mutate(state2fullfips = str_c(y2_statefips, y2_countyfips))
 ```
 
-
-outmigration from just california
+## making a table for outmigration from just california
 ```{r}
-irsouts %>% group_by(y2_countyname) %>% filter(y1_statefips == "06")
+justca <- irsouts %>% group_by(y2_countyname) %>% filter(y1_statefips == "06")
+
+justca <- justca %>% filter(y2_statefips !=96 & y2_statefips !=97 & y2_statefips !=98)
+
+supersimplified <- justca %>% group_by(y2_countyname, state2fullfips) %>% summarise(sum(n2))
 ```
 
 
-## to merge
+## to merge with lat long data
+```{r}
+justcawithlatlong <- merge(justca, latlongs, by.x = "state2fullfips", by.y = "fips_code")
+```
+
+##print
+```{r}
+write.csv(justcawithlatlong, "californiaoutmigration.csv")
+
+justca <- justca[complete.cases(justca), ]
+
+write.csv(justca, "californiaoutmigrationnolatlong.csv")
+```
 
 ```{r}
-
+mergeddata <- read_csv("~/Desktop/elliesacbeeR/data/merge__california__georef-uni.csv")
 ```
 
 
+```{r}
+mergeddata <- mergeddata[complete.cases(mergeddata), ]
+```
 
 
+```{r}
+write.csv(supersimplified, "supersimplified.csv")
+```
+
+Ellie EOD note 6/30: 
+
+I need to find the totals for each county's migrants from California. Then, I need to somehow merge that data into a JSON format so that mapbox can read it OR I can open it in After Effects. 
+
+
+## binding data to shp 
+```{r}
+library(sf)
+```
+
+```{r}
+us <- st_read("/Users/elin/Downloads/cb_2018_us_county_500k")
+
+us <- us %>% mutate(fullfips = str_c(STATEFP, COUNTYFP))
+
+irsouts <- irsouts %>% group_by(y2_countyname) %>% filter(y1_statefips == "6" & y2_statefips !=96 & y2_statefips !=97 & y2_statefips !=98)
+
+uswithdata <- merge(irsouts, us, by.x = "state2fullfips", by.y = "fullfips")
+
+st_write(uswithdata, "uswithdata.shp")
+```

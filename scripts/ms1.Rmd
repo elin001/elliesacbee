@@ -1,0 +1,9 @@
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+encounters <- read_csv("~/Desktop/elliesacbeeR/data/nationwide-encounters-fy20-fy23-may.csv")
+```
+

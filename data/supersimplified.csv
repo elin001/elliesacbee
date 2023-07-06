@@ -1,0 +1,643 @@
+"","y2_countyname","state2fullfips","sum(n2)"
+"1","Ada County","16001",9905
+"2","Adams County","08001",1108
+"3","Aiken County","45003",88
+"4","Alachua County","12001",137
+"5","Alamance County","37001",48
+"6","Alameda County","06001",53862
+"7","Alameda County Non-migrants","06001",1222860
+"8","Albany County","36001",60
+"9","Albemarle County","51003",132
+"10","Alexandria city","51510",411
+"11","Allegheny County","42003",1291
+"12","Allen County","18003",247
+"13","Alpine County Non-migrants","06003",650
+"14","Amador County","06005",2111
+"15","Amador County Non-migrants","06005",28379
+"16","Anchorage Municipality","02020",553
+"17","Anderson County","45007",142
+"18","Anne Arundel County","24003",967
+"19","Anoka County","27003",114
+"20","Apache County","04001",36
+"21","Arapahoe County","08005",2331
+"22","Arlington County","51013",821
+"23","Atlantic County","34001",98
+"24","Baldwin County","01003",125
+"25","Baltimore County","24005",349
+"26","Baltimore city","24510",522
+"27","Bannock County","16005",150
+"28","Barnstable County","25001",213
+"29","Bastrop County","48021",121
+"30","Bay County","12005",128
+"31","Beaufort County","45013",708
+"32","Beaver County","42007",27
+"33","Bell County","48027",1800
+"34","Benton County","05007",1250
+"35","Benton County","41003",282
+"36","Benton County","53005",407
+"37","Bergen County","34003",779
+"38","Berkeley County","45015",313
+"39","Berks County","42011",81
+"40","Berkshire County","25003",43
+"41","Bernalillo County","35001",1709
+"42","Bexar County","48029",7485
+"43","Blaine County","16013",133
+"44","Blount County","47009",377
+"45","Bonner County","16017",378
+"46","Bonneville County","16019",501
+"47","Boone County","21015",42
+"48","Boone County","29019",80
+"49","Boulder County","08013",1939
+"50","Brazoria County","48039",435
+"51","Brazos County","48041",298
+"52","Brevard County","12009",1058
+"53","Bristol County","25005",112
+"54","Bronx County","36005",290
+"55","Broomfield County","08014",309
+"56","Broward County","12011",2780
+"57","Brown County","55009",99
+"58","Brunswick County","37019",121
+"59","Bucks County","42017",313
+"60","Buncombe County","37021",440
+"61","Burlington County","34005",159
+"62","Butler County","39017",100
+"63","Butte County","06007",5682
+"64","Butte County Non-migrants","06007",138120
+"65","Cabarrus County","37025",84
+"66","Cache County","49005",326
+"67","Caddo Parish","22017",41
+"68","Calaveras County","06009",2588
+"69","Calaveras County Non-migrants","06009",31937
+"70","Camden County","13039",108
+"71","Camden County","34007",130
+"72","Cameron County","48061",349
+"73","Campbell County","21037",25
+"74","Canadian County","40017",110
+"75","Canyon County","16027",3867
+"76","Carson City","32510",808
+"77","Carteret County","37031",45
+"78","Cascade County","30013",53
+"79","Cass County","38017",29
+"80","Catawba County","37035",28
+"81","Centre County","42027",72
+"82","Champaign County","17019",154
+"83","Charles County","24017",63
+"84","Charleston County","45019",634
+"85","Charlotte County","12015",162
+"86","Chatham County","13051",394
+"87","Chatham County","37037",47
+"88","Chelan County","53007",65
+"89","Cherokee County","13057",335
+"90","Chesapeake city","51550",647
+"91","Chester County","42029",399
+"92","Chesterfield County","51041",183
+"93","Chittenden County","50007",153
+"94","Christian County","21047",49
+"95","Christian County","29043",241
+"96","Churchill County","32001",66
+"97","Clackamas County","41005",2320
+"98","Clallam County","53009",185
+"99","Clark County","32003",37627
+"100","Clark County","53011",3530
+"101","Clarke County","13059",39
+"102","Clay County","12019",274
+"103","Clay County","29047",232
+"104","Clayton County","13063",157
+"105","Cleveland County","40027",319
+"106","Cobb County","13067",1374
+"107","Cochise County","04003",433
+"108","Coconino County","04005",730
+"109","Collier County","12021",719
+"110","Collin County","48085",8795
+"111","Columbia County","13073",190
+"112","Columbia County","36021",39
+"113","Colusa County","06011",361
+"114","Colusa County Non-migrants","06011",18107
+"115","Comal County","48091",1141
+"116","Comanche County","40031",290
+"117","Contra Costa County","06013",44148
+"118","Contra Costa County Non-migrants","06013",897175
+"119","Cook County","17031",6325
+"120","Coos County","41011",134
+"121","Coryell County","48099",98
+"122","Coweta County","13077",202
+"123","Cowlitz County","53015",82
+"124","Craven County","37049",355
+"125","Cumberland County","23005",481
+"126","Cumberland County","37051",704
+"127","Cumberland County","42041",95
+"128","Curry County","41015",160
+"129","Cuyahoga County","39035",1071
+"130","Dakota County","27037",228
+"131","Dallas County","48113",7008
+"132","Dane County","55025",587
+"133","Dauphin County","42043",89
+"134","Davidson County","47037",2690
+"135","Davis County","49011",1524
+"136","DeKalb County","13089",1218
+"137","DeSoto County","28033",48
+"138","Del Norte County","06015",330
+"139","Del Norte County Non-migrants","06015",17573
+"140","Delaware County","39041",76
+"141","Delaware County","42045",248
+"142","Denton County","48121",5457
+"143","Denver County","08031",3830
+"144","Deschutes County","41017",2870
+"145","District of Columbia","11001",2178
+"146","Do??a Ana County","35013",408
+"147","Dorchester County","45035",97
+"148","Douglas County","08035",2367
+"149","Douglas County","13097",82
+"150","Douglas County","20045",28
+"151","Douglas County","31055",729
+"152","Douglas County","32005",1605
+"153","Douglas County","41019",347
+"154","DuPage County","17043",1007
+"155","Durham County","37063",672
+"156","Dutchess County","36027",94
+"157","Duval County","12031",2038
+"158","Eagle County","08037",92
+"159","East Baton Rouge Parish","22033",130
+"160","Ector County","48135",33
+"161","El Dorado County","06017",10339
+"162","El Dorado County Non-migrants","06017",146249
+"163","El Paso County","08041",4541
+"164","El Paso County","48141",2565
+"165","Ellis County","48139",449
+"166","Erie County","36029",360
+"167","Erie County","42049",80
+"168","Escambia County","12033",660
+"169","Essex County","25009",522
+"170","Essex County","34013",480
+"171","Fairbanks North Star Borough","02090",146
+"172","Fairfax County","51059",2948
+"173","Fairfield County","09001",1128
+"174","Fayette County","13113",268
+"175","Fayette County","21067",236
+"176","Flagler County","12035",150
+"177","Flathead County","30029",864
+"178","Foreign - APO/FPO ZIPs","57005",6354
+"179","Foreign - Other flows","57009",434
+"180","Foreign - Puerto Rico","57003",391
+"181","Forsyth County","13117",551
+"182","Forsyth County","37067",232
+"183","Fort Bend County","48157",2650
+"184","Franklin County","39049",1359
+"185","Franklin County","53021",92
+"186","Frederick County","24021",161
+"187","Fresno County","06019",16581
+"188","Fresno County Non-migrants","06019",749580
+"189","Fulton County","13121",2995
+"190","Gallatin County","30031",699
+"191","Galveston County","48167",411
+"192","Garfield County","08045",30
+"193","Gaston County","37071",80
+"194","Geary County","20061",40
+"195","Genesee County","26049",35
+"196","Gila County","04007",168
+"197","Glenn County","06021",693
+"198","Glenn County Non-migrants","06021",22421
+"199","Gloucester County","34015",35
+"200","Glynn County","13127",33
+"201","Grafton County","33009",52
+"202","Grant County","53025",50
+"203","Grays Harbor County","53027",32
+"204","Grayson County","48181",161
+"205","Greene County","29077",457
+"206","Greene County","39057",70
+"207","Greenville County","45045",881
+"208","Gregg County","48183",34
+"209","Guadalupe County","48187",669
+"210","Guilford County","37081",339
+"211","Gwinnett County","13135",1909
+"212","Hall County","13139",142
+"213","Hamilton County","18057",774
+"214","Hamilton County","39061",555
+"215","Hamilton County","47065",600
+"216","Hampden County","25013",86
+"217","Hampshire County","25015",89
+"218","Hampton city","51650",126
+"219","Harford County","24025",52
+"220","Harris County","48201",10393
+"221","Harrison County","28047",301
+"222","Hartford County","09003",505
+"223","Hawaii County","15001",1476
+"224","Hays County","48209",1346
+"225","Henderson County","37089",89
+"226","Henderson County","48213",46
+"227","Hendricks County","18063",104
+"228","Hennepin County","27053",2040
+"229","Henrico County","51087",205
+"230","Henry County","13151",240
+"231","Hernando County","12053",78
+"232","Hidalgo County","48215",429
+"233","Hillsborough County","12057",2336
+"234","Hillsborough County","33011",379
+"235","Hinds County","28049",45
+"236","Honolulu County","15003",6421
+"237","Hood County","48221",156
+"238","Horry County","45051",303
+"239","Houston County","13153",42
+"240","Howard County","24027",458
+"241","Hudson County","34017",978
+"242","Humboldt County","06023",2353
+"243","Humboldt County Non-migrants","06023",87671
+"244","Hunt County","48231",59
+"245","Hunterdon County","34019",40
+"246","Imperial County","06025",3343
+"247","Imperial County Non-migrants","06025",159649
+"248","Indian River County","12061",133
+"249","Ingham County","26065",93
+"250","Inyo County","06027",393
+"251","Inyo County Non-migrants","06027",13090
+"252","Iredell County","37097",246
+"253","Iron County","49021",630
+"254","Island County","53029",683
+"255","Jackson County","28059",89
+"256","Jackson County","29095",977
+"257","Jackson County","41029",2348
+"258","James City County","51095",32
+"259","Jasper County","29097",60
+"260","Jefferson County","01073",232
+"261","Jefferson County","08059",1658
+"262","Jefferson County","21111",607
+"263","Jefferson County","29099",35
+"264","Jefferson County","36045",147
+"265","Jefferson County","48245",70
+"266","Jefferson County","53031",38
+"267","Jefferson Parish","22051",117
+"268","Johnson County","19103",71
+"269","Johnson County","20091",984
+"270","Johnson County","48251",384
+"271","Johnston County","37101",120
+"272","Josephine County","41033",637
+"273","Kalamazoo County","26077",80
+"274","Kane County","17089",221
+"275","Kauai County","15007",347
+"276","Kaufman County","48257",481
+"277","Kenai Peninsula Borough","02122",40
+"278","Kendall County","48259",204
+"279","Kenosha County","55059",45
+"280","Kent County","26081",494
+"281","Kent County","44003",42
+"282","Kenton County","21117",36
+"283","Kern County","06029",20363
+"284","Kern County Non-migrants","06029",658011
+"285","Kerr County","48265",37
+"286","King County","53033",17692
+"287","Kings County","06031",3980
+"288","Kings County","36047",3775
+"289","Kings County Non-migrants","06031",106336
+"290","Kitsap County","53035",2399
+"291","Klamath County","41035",432
+"292","Knox County","47093",1393
+"293","Kootenai County","16055",3322
+"294","La Paz County","04012",273
+"295","La Plata County","08067",93
+"296","Lackawanna County","42069",39
+"297","Lafayette Parish","22055",55
+"298","Lake County","06033",1891
+"299","Lake County","12069",261
+"300","Lake County","17097",1100
+"301","Lake County","18089",103
+"302","Lake County","39085",30
+"303","Lake County Non-migrants","06033",41531
+"304","Lancaster County","31109",255
+"305","Lancaster County","42071",140
+"306","Lancaster County","45057",52
+"307","Lane County","41039",2309
+"308","Laramie County","56021",176
+"309","Larimer County","08069",1441
+"310","Lassen County","06035",573
+"311","Lassen County Non-migrants","06035",18082
+"312","Latah County","16057",41
+"313","Lauderdale County","28075",54
+"314","Leavenworth County","20103",100
+"315","Lee County","01081",64
+"316","Lee County","12071",1083
+"317","Lehigh County","42077",92
+"318","Leon County","12073",48
+"319","Lewis County","53041",41
+"320","Lewis and Clark County","30049",34
+"321","Lexington County","45063",109
+"322","Liberty County","13179",74
+"323","Lincoln County","41041",56
+"324","Linn County","41043",229
+"325","Litchfield County","09005",61
+"326","Lorain County","39093",88
+"327","Los Angeles County","06037",95813
+"328","Los Angeles County Non-migrants","06037",7260542
+"329","Loudon County","47105",136
+"330","Loudoun County","51107",770
+"331","Lubbock County","48303",275
+"332","Lucas County","39095",135
+"333","Luna County","35029",143
+"334","Luzerne County","42079",81
+"335","Lyon County","32019",959
+"336","Macomb County","26099",508
+"337","Madera County","06039",6345
+"338","Madera County Non-migrants","06039",114675
+"339","Madison County","01089",539
+"340","Madison County","16065",88
+"341","Mahoning County","39099",83
+"342","Manatee County","12081",573
+"343","Maricopa County","04013",35456
+"344","Marin County","06041",9065
+"345","Marin County Non-migrants","06041",197274
+"346","Marion County","12083",273
+"347","Marion County","18097",910
+"348","Marion County","41047",1069
+"349","Mariposa County","06043",523
+"350","Mariposa County Non-migrants","06043",11158
+"351","Martin County","12085",95
+"352","Mason County","53045",41
+"353","Matanuska-Susitna Borough","02170",48
+"354","Maui County","15009",1129
+"355","Maury County","47119",624
+"356","McHenry County","17111",107
+"357","McLean County","17113",32
+"358","McLennan County","48309",574
+"359","Mecklenburg County","37119",2171
+"360","Mendocino County","06045",1874
+"361","Mendocino County Non-migrants","06045",61068
+"362","Merced County","06047",10111
+"363","Merced County Non-migrants","06047",205966
+"364","Mercer County","34021",407
+"365","Merrimack County","33013",34
+"366","Mesa County","08077",290
+"367","Miami-Dade County","12086",4255
+"368","Middlesex County","09007",43
+"369","Middlesex County","25017",3287
+"370","Middlesex County","34023",639
+"371","Midland County","48329",201
+"372","Milwaukee County","55079",708
+"373","Minnehaha County","46099",308
+"374","Missoula County","30063",278
+"375","Mobile County","01097",122
+"376","Modoc County","06049",31
+"377","Modoc County Non-migrants","06049",5561
+"378","Mohave County","04015",5632
+"379","Monmouth County","34025",402
+"380","Mono County","06051",405
+"381","Mono County Non-migrants","06051",9268
+"382","Monroe County","12087",112
+"383","Monroe County","18105",81
+"384","Monroe County","36055",441
+"385","Monterey County","06053",8660
+"386","Monterey County Non-migrants","06053",330902
+"387","Montgomery County","01101",57
+"388","Montgomery County","24031",1819
+"389","Montgomery County","39113",251
+"390","Montgomery County","42091",684
+"391","Montgomery County","47125",830
+"392","Montgomery County","48339",3016
+"393","Montrose County","08085",46
+"394","Moore County","37125",123
+"395","Morris County","34027",389
+"396","Multnomah County","41051",6583
+"397","Muscogee County","13215",236
+"398","Muskegon County","26121",30
+"399","Napa County","06055",4195
+"400","Napa County Non-migrants","06055",104129
+"401","Nassau County","12089",83
+"402","Nassau County","36059",692
+"403","Natrona County","56025",49
+"404","Navajo County","04017",277
+"405","Nevada County","06057",4889
+"406","Nevada County Non-migrants","06057",73915
+"407","New Castle County","10003",292
+"408","New Hanover County","37129",339
+"409","New Haven County","09009",604
+"410","New London County","09011",251
+"411","New York County","36061",6609
+"412","Newport County","44005",239
+"413","Newport News city","51700",165
+"414","Norfolk County","25021",874
+"415","Norfolk city","51710",775
+"416","Northampton County","42095",39
+"417","Nueces County","48355",306
+"418","Nye County","32023",476
+"419","Oakland County","26125",1429
+"420","Ocean County","34029",184
+"421","Okaloosa County","12091",426
+"422","Oklahoma County","40109",1702
+"423","Olmsted County","27109",91
+"424","Onondaga County","36067",203
+"425","Onslow County","37133",2286
+"426","Orange County","06059",72958
+"427","Orange County","12095",2534
+"428","Orange County","36071",111
+"429","Orange County","37135",285
+"430","Orange County Non-migrants","06059",2441185
+"431","Orleans Parish","22071",527
+"432","Osceola County","12097",306
+"433","Otero County","35035",35
+"434","Other flows - Different State","59000",212974
+"435","Other flows - Midwest","59003",42425
+"436","Other flows - Northeast","59001",20605
+"437","Other flows - Same State","58000",16596
+"438","Other flows - South","59005",96467
+"439","Other flows - West","59007",53454
+"440","Ottawa County","26139",99
+"441","Palm Beach County","12099",2646
+"442","Parker County","48367",727
+"443","Pasco County","12101",685
+"444","Passaic County","34031",124
+"445","Paulding County","13223",67
+"446","Pender County","37141",143
+"447","Pennington County","46103",396
+"448","Peoria County","17143",32
+"449","Pettis County","29159",100
+"450","Philadelphia County","42101",1418
+"451","Pierce County","53053",4424
+"452","Pima County","04019",5381
+"453","Pinal County","04021",3860
+"454","Pinellas County","12103",1756
+"455","Pitkin County","08097",100
+"456","Placer County","06061",23912
+"457","Placer County Non-migrants","06061",313862
+"458","Platte County","29165",55
+"459","Plumas County","06063",372
+"460","Plumas County Non-migrants","06063",13484
+"461","Plymouth County","25023",235
+"462","Polk County","12105",504
+"463","Polk County","19153",727
+"464","Polk County","41053",163
+"465","Polk County","48373",139
+"466","Portsmouth city","51740",109
+"467","Potter County","48375",46
+"468","Prince George's County","24033",506
+"469","Prince William County","51153",949
+"470","Providence County","44007",291
+"471","Pueblo County","08101",150
+"472","Pulaski County","05119",356
+"473","Pulaski County","29169",135
+"474","Putnam County","47141",40
+"475","Queens County","36081",1518
+"476","Ramsey County","27123",414
+"477","Randall County","48381",95
+"478","Ravalli County","30081",215
+"479","Rensselaer County","36083",29
+"480","Richland County","45079",237
+"481","Richmond County","13245",182
+"482","Richmond County","36085",35
+"483","Richmond city","51760",183
+"484","Riley County","20161",34
+"485","Riverside County","06065",100295
+"486","Riverside County Non-migrants","06065",1780031
+"487","Rockingham County","33015",173
+"488","Rockland County","36087",66
+"489","Rockwall County","48397",574
+"490","Routt County","08107",26
+"491","Rutherford County","47149",904
+"492","Sacramento County","06067",45130
+"493","Sacramento County Non-migrants","06067",1170089
+"494","Salt Lake County","49035",5982
+"495","San Benito County","06069",3914
+"496","San Benito County Non-migrants","06069",51826
+"497","San Bernardino County","06071",78909
+"498","San Bernardino County Non-migrants","06071",1597407
+"499","San Diego County","06073",49959
+"500","San Diego County Non-migrants","06073",2576529
+"501","San Francisco County","06075",26109
+"502","San Francisco County Non-migrants","06075",572443
+"503","San Joaquin County","06077",30630
+"504","San Joaquin County Non-migrants","06077",583707
+"505","San Juan County","53055",55
+"506","San Luis Obispo County","06079",8969
+"507","San Luis Obispo County Non-migrants","06079",203481
+"508","San Mateo County","06081",25974
+"509","San Mateo County Non-migrants","06081",577593
+"510","Sandoval County","35043",381
+"511","Santa Barbara County","06083",8388
+"512","Santa Barbara County Non-migrants","06083",328039
+"513","Santa Clara County","06085",40718
+"514","Santa Clara County Non-migrants","06085",1493667
+"515","Santa Cruz County","06087",7648
+"516","Santa Cruz County Non-migrants","06087",194398
+"517","Santa Fe County","35049",668
+"518","Santa Rosa County","12113",248
+"519","Sarasota County","12115",1046
+"520","Saratoga County","36091",94
+"521","Sarpy County","31153",268
+"522","Sebastian County","05131",70
+"523","Sedgwick County","20173",453
+"524","Seminole County","12117",511
+"525","Shasta County","06089",4727
+"526","Shasta County Non-migrants","06089",126807
+"527","Shawnee County","20177",75
+"528","Shelby County","01117",73
+"529","Shelby County","47157",944
+"530","Sierra County","06091",30
+"531","Sierra County Non-migrants","06091",1874
+"532","Siskiyou County","06093",706
+"533","Siskiyou County Non-migrants","06093",30352
+"534","Skagit County","53057",195
+"535","Smith County","48423",553
+"536","Snohomish County","53061",3398
+"537","Solano County","06095",16753
+"538","Solano County Non-migrants","06095",335522
+"539","Somerset County","34035",209
+"540","Sonoma County","06097",12277
+"541","Sonoma County Non-migrants","06097",371526
+"542","Spartanburg County","45083",676
+"543","Spokane County","53063",2363
+"544","Spotsylvania County","51177",91
+"545","St. Charles County","29183",241
+"546","St. Clair County","17163",170
+"547","St. Johns County","12109",809
+"548","St. Joseph County","18141",108
+"549","St. Louis County","29189",1013
+"550","St. Louis city","29510",303
+"551","St. Lucie County","12111",278
+"552","St. Mary's County","24037",172
+"553","St. Tammany Parish","22103",149
+"554","Stafford County","51179",461
+"555","Stanislaus County","06099",16028
+"556","Stanislaus County Non-migrants","06099",414136
+"557","Stark County","39151",44
+"558","Suffolk County","25025",1387
+"559","Suffolk County","36103",755
+"560","Suffolk city","51800",125
+"561","Sullivan County","47163",82
+"562","Summit County","08117",26
+"563","Summit County","39153",246
+"564","Summit County","49043",659
+"565","Sumner County","47165",781
+"566","Sumter County","12119",132
+"567","Sussex County","10005",101
+"568","Sutter County","06101",3379
+"569","Sutter County Non-migrants","06101",73486
+"570","Taos County","35055",38
+"571","Tarrant County","48439",7962
+"572","Taylor County","48441",101
+"573","Tehama County","06103",2027
+"574","Tehama County Non-migrants","06103",44663
+"575","Teton County","56039",149
+"576","Thurston County","53067",1423
+"577","Tippecanoe County","18157",182
+"578","Tolland County","09013",30
+"579","Tom Green County","48451",176
+"580","Tompkins County","36109",171
+"581","Travis County","48453",11080
+"582","Trinity County","06105",166
+"583","Trinity County Non-migrants","06105",6663
+"584","Tulare County","06107",8972
+"585","Tulare County Non-migrants","06107",355239
+"586","Tulsa County","40143",1482
+"587","Tuolumne County","06109",2076
+"588","Tuolumne County Non-migrants","06109",37520
+"589","Twin Falls County","16083",614
+"590","Ulster County","36111",86
+"591","Umatilla County","41059",59
+"592","Union County","34039",217
+"593","Union County","37179",342
+"594","Utah County","49049",3996
+"595","Vanderburgh County","18163",31
+"596","Ventura County","06111",20959
+"597","Ventura County Non-migrants","06111",659467
+"598","Virginia Beach city","51810",1875
+"599","Volusia County","12127",591
+"600","Wake County","37183",3715
+"601","Walton County","12131",77
+"602","Ward County","38101",89
+"603","Warren County","21227",36
+"604","Warren County","39165",163
+"605","Wasatch County","49051",221
+"606","Washington County","05143",378
+"607","Washington County","27163",100
+"608","Washington County","41067",4279
+"609","Washington County","44009",80
+"610","Washington County","49053",1956
+"611","Washoe County","32031",10264
+"612","Washtenaw County","26161",725
+"613","Waukesha County","55133",93
+"614","Wayne County","26163",1061
+"615","Webb County","48479",35
+"616","Weber County","49057",934
+"617","Weld County","08123",555
+"618","Westchester County","36119",865
+"619","Westmoreland County","42129",56
+"620","Whatcom County","53073",966
+"621","Wichita County","48485",150
+"622","Will County","17197",432
+"623","Williamson County","47187",3041
+"624","Williamson County","48491",6757
+"625","Wilson County","47189",656
+"626","Windsor County","50027",34
+"627","Winnebago County","17201",48
+"628","Wise County","48497",101
+"629","Worcester County","25027",405
+"630","Wyandotte County","20209",73
+"631","Yakima County","53077",216
+"632","Yamhill County","41071",109
+"633","Yavapai County","04025",4262
+"634","Yellowstone County","30111",349
+"635","Yolo County","06113",8793
+"636","Yolo County Non-migrants","06113",147057
+"637","York County","23031",125
+"638","York County","42133",90
+"639","York County","45091",237
+"640","Yuba County","06115",5105
+"641","Yuba County Non-migrants","06115",55342
+"642","Yuma County","04027",3116

@@ -69,6 +69,8 @@ antitransstatewide <- hc2022 %>% group_by(ClosedYear) %>%filter(MostSeriousBias 
 
 antiaasianstatewide <- hc2022 %>% group_by(ClosedYear) %>%filter(MostSeriousBias == "Anti-Asian") %>% summarise(anti_asian = sum(TotalNumberOfVictims))
 
+hc2022 %>% group_by(ClosedYear) %>% filter(MostSeriousBias == "Anti-Asian") %>% summarise( n = n())
+
 antiblackstatewide <- hc2022 %>% group_by(ClosedYear) %>%filter(MostSeriousBias == "Anti-Black or African American") %>% summarise(anti_black = sum(TotalNumberOfVictims))
 
 antilgbtqstatewide <- hc2022 %>% group_by(ClosedYear) %>% filter(MostSeriousBias == "Anti-Gay (Male)" | MostSeriousBias == "Anti-Lesbian" | MostSeriousBias == "Anti-Transgender" | MostSeriousBias == "Anti-Lesbian/Gay/Bisexual or Transgender (Mixed Group)")  %>% summarise(anti_lgbtq = sum(TotalNumberOfVictims))
