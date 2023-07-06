@@ -9,7 +9,7 @@ library(sf)
 
 ##read data
 ```{r}
-countyoutflow <- read.csv("~/Desktop/R/data/countyoutflow2021.csv")
+countyoutflow <- read.csv("~/Desktop/elliesacbeeR/data/countyoutflow2021.csv")
 
 us <- st_read("/Users/elin/Downloads/cb_2018_us_county_500k")
 ```
