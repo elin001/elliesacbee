@@ -1,0 +1,5 @@
+"0","california$y2_countyfips <- str_pad(california$y2_countyfips, 3, pad = 0)"
+"0",""
+"0","california$y2_statefips <- str_pad(california$y2_statefips, 2, pad = 0)"
+"0",""
+"0","california <- california %>% mutate(state2fullfips = str_c(y2_statefips, y2_countyfips))"

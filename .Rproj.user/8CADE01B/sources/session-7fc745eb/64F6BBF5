@@ -3,7 +3,7 @@
     "path": "~/Desktop/elliesacbeeR/scripts/countyoutscleaner.Rmd",
     "project_path": "scripts/countyoutscleaner.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "1136626234",
     "contents": "",
     "dirty": false,
     "created": 1688687144199.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "17,147",
-        "scrollLine": "8"
+        "cursorPosition": "72,43",
+        "scrollLine": "43"
     },
     "folds": "",
-    "lastKnownWriteTime": 1688687234,
+    "lastKnownWriteTime": 1688687605,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1688687237739,
+    "last_content_update": 1688687605980,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -70,4 +70,4 @@ uswithdata1 <- merge(us, simplified, by.x = "fullfips", by.y = "state2fullfips",
 st_write(uswithdata1, "uswithdata.shp")
 ```
 
-did not create a full country outlook? 
+did not create a full country outlook? huh?
