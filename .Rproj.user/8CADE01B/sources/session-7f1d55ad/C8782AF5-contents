@@ -1,0 +1,73 @@
+
+a cleaner version of countyouts.rmd, for the sake of double checking my work
+
+##loading packages
+```{r}
+library(tidyverse)
+library(sf)
+```
+
+##read data
+```{r}
+countyoutflow <- read.csv("~/Desktop/R/data/countyoutflow2021.csv")
+
+us <- st_read("/Users/elin/Downloads/cb_2018_us_county_500k")
+```
+##filter it down
+```{r}
+california <- countyoutflow %>% group_by(y2_countyname) %>% filter(y1_statefips == "6" & y2_statefips !=96 & y2_statefips !=97 & y2_statefips !=98)
+```
+
+##adding the full fips code
+str_pad makes the fips codes into 3 digits (county) and 2 digits (state) so that they can be concated together into a real ~~boy~~ fips code
+```{r}
+california$y2_countyfips <- str_pad(california$y2_countyfips, 3, pad = 0)
+
+california$y2_statefips <- str_pad(california$y2_statefips, 2, pad = 0)
+
+california <- california %>% mutate(state2fullfips = str_c(y2_statefips, y2_countyfips))
+```
+
+### adding the full fips code to the us shapefile
+```{r}
+us <- us %>% mutate(fullfips = str_c(STATEFP, COUNTYFP))
+```
+
+##grouping
+going to group by y2 county names so that i can 
+```{r}
+california %>% group_by(y2_countyname, state2fullfips) %>% summarise(individuals = sum(n2))
+```
+
+### integrity check: hennepin county
+```{r}
+california %>% group_by(y2_countyname) %>% filter(y2_countyname == "Hennepin County") %>% summarise(individuals = sum(n2))
+```
+it looks right to me but will definitely need a second set of eyes
+
+```{r}
+simplified <- california %>% group_by(y2_countyname, state2fullfips) %>% summarise(individuals = sum(n2))
+```
+
+##merging
+```{r}
+uswithdata <- merge(simplified, us, by.x = "state2fullfips", by.y = "fullfips")
+```
+
+##print
+```{r}
+st_write(uswithdata, "uswithdata.shp")
+```
+
+okay so that printed well, everything worked the way I wanted to in order to animate in blender. however, the problem is that it contains exclusively the counties to which people migrated from california. (which is correct for its code). HOWEVER (again), it means that there are large swaths of the country that are just blank. so i need 0 values for every county in the country. 
+
+the goal: uswithdata1 has 3222 observations of 13 variables. there's a 0 for the counties that received no california migrants
+
+###trying a different merge
+```{r}
+uswithdata1 <- merge(us, simplified, by.x = "fullfips", by.y = "state2fullfips", all.x = TRUE)
+
+st_write(uswithdata1, "uswithdata.shp")
+```
+
+did not create a full country outlook? 
