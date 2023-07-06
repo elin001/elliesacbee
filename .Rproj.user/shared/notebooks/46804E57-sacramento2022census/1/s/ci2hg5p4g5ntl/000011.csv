@@ -1,5 +1,0 @@
-"0","acs2022 <-load_variables(2022, ""acs1"", cache = TRUE)
-"
-"2","Error in get_dataset(dataset, year) : 
-  API endpoint not found. Does this data set exist for the specified year? See https://api.census.gov/data.html for data availability.
-"
